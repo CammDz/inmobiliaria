@@ -58,12 +58,16 @@ public class AuthFilter implements Filter {
                 return;
             }
         } else if (ruta.startsWith("/agente/")) {
-            if (roles == null || !roles.contains("Agente Inmobiliario")) {
+            // El Administrador tiene acceso total, incluidas las rutas de agente.
+            if (roles == null
+                    || (!roles.contains("Administrador") && !roles.contains("Agente Inmobiliario"))) {
                 resp.sendRedirect(req.getContextPath() + "/acceso-denegado.jsp");
                 return;
             }
         } else if (ruta.startsWith("/cliente/")) {
-            if (roles == null || !roles.contains("Cliente")) {
+            // El Administrador tiene acceso total, incluidas las rutas de cliente.
+            if (roles == null
+                    || (!roles.contains("Administrador") && !roles.contains("Cliente"))) {
                 resp.sendRedirect(req.getContextPath() + "/acceso-denegado.jsp");
                 return;
             }
