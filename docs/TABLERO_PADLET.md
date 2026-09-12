@@ -6,9 +6,7 @@ sprints de 7 días.
 
 **Enlace público del tablero (Padlet):** <https://padlet.com/dayroncamilo4/inmovain-soluciones-tablero-scrum-s023incmxbtuuuhomv53>
 
-**Respaldo visual del tablero:** `docs/tablero_padlet.html` (versión HTML con las
-mismas tarjetas, para captura de pantalla si el tablero en línea no cargara durante
-la sustentación).
+**PDF exportado del tablero:** `docs/tablero_padlet.pdf`.
 
 ---
 

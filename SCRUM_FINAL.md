@@ -11,7 +11,7 @@
 
 - **Repositorio Git (público):** `https://github.com/CammDz/inmobiliaria` - el historial refleja los tres sprints
   (ver `git log --oneline`: Sprint 1, Sprint 2, Sprint 3 + fixes de seguridad).
-- **Tablero Scrum:** https://padlet.com/dayroncamilo4/inmovain-soluciones-tablero-scrum-s023incmxbtuuuhomv53 - detalle y capturas en `docs/TABLERO_PADLET.md` (respaldo visual en `docs/tablero_padlet.html`).
+- **Tablero Scrum:** https://padlet.com/dayroncamilo4/inmovain-soluciones-tablero-scrum-s023incmxbtuuuhomv53 - detalle en `docs/TABLERO_PADLET.md` y PDF en `docs/tablero_padlet.pdf`.
 
 ---
 
