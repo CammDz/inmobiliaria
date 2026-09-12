@@ -4,13 +4,11 @@ Tablero Scrum del proyecto, correspondiente a las historias de usuario del Produ
 Backlog (priorizadas por el Product Owner - profesor) y su ejecución en los tres
 sprints de 7 días.
 
-**Enlace público del tablero (Padlet):** `[PENDIENTE - pegar aquí el enlace de tu Padlet]`
+**Enlace público del tablero (Padlet):** <https://padlet.com/dayroncamilo4/inmovain-soluciones-tablero-scrum-s023incmxbtuuuhomv53>
 
-> Instrucción para la sustentación: crear el tablero en https://padlet.com,
-> colapsar cada sprint en una columna (Sprint 1 / Sprint 2 / Sprint 3) con las
-> tarjetas en la posición "Por hacer / En curso / Terminado", pegar aquí el enlace
-> y adjuntar una captura de pantalla en `docs/captura-tablero.png` (o incluir la
-> imagen con `![](captura-tablero.png)`).
+**Respaldo visual del tablero:** `docs/tablero_padlet.html` (versión HTML con las
+mismas tarjetas, para captura de pantalla si el tablero en línea no cargara durante
+la sustentación).
 
 ---
 
