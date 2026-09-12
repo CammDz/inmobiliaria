@@ -1,0 +1,44 @@
+# ============================================
+# InmoVaIn Soluciones - .gitignore
+# ============================================
+
+# Compilación y empaquetado
+build/
+exploded/
+target/
+*.war
+*.class
+
+# Configuración local (contiene credenciales)
+database.properties
+src/main/webapp/WEB-INF/classes/database.properties
+.env
+*.local.properties
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+nbproject/
+
+# SO
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Archivos subidos en tiempo de ejecución
+src/main/webapp/uploads/
+uploads/
+
+# Logs
+*.log
+logs/
+
+# Datos locales
+*.sql.bak
+
+# Dependencia manual
+lib/*.jar.tmp

@@ -1,0 +1,94 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    // Variables de sesión para el menú
+    Integer navUsuarioId = (Integer) (session != null ? session.getAttribute("usuario_id") : null);
+    String navUsuarioNombre = (String) (session != null ? session.getAttribute("usuario_nombre") : null);
+    java.util.Set<String> navRoles = (java.util.Set<String>) (session != null ? session.getAttribute("usuario_roles") : null);
+    boolean navAutenticado = navUsuarioId != null;
+    boolean navAdmin = navRoles != null && navRoles.contains("Administrador");
+    boolean navAgente = navRoles != null && navRoles.contains("Agente Inmobiliario");
+    boolean navCliente = navRoles != null && navRoles.contains("Cliente");
+    pageContext.setAttribute("navAutenticado", navAutenticado);
+    pageContext.setAttribute("navAdmin", navAdmin);
+    pageContext.setAttribute("navAgente", navAgente);
+    pageContext.setAttribute("navCliente", navCliente);
+%>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="${pageContext.request.contextPath}/index.jsp">
+            <i class="bi bi-house-door-fill me-1"></i>InmoVaIn <span class="text-warning">Soluciones</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navPrincipal"
+                aria-controls="navPrincipal" aria-expanded="false" aria-label="Alternar navegación">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navPrincipal">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/catalogo">Catálogo</a></li>
+
+                <c:if test="${navAdmin}">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Administración</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/dashboard.jsp">Panel principal</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/usuarios">Usuarios y roles</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ciudades">Ciudades</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/tipos">Tipos de propiedad</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/caracteristicas">Características</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/inmobiliarias">Inmobiliarias</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/auditoria">Auditoría</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/reportes">Reportes</a></li>
+                        </ul>
+                    </li>
+                </c:if>
+
+                <c:if test="${navAgente}">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Gestión</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/agente/dashboard.jsp">Panel principal</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/agente/propiedades">Mis propiedades</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/agente/citas">Citas</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/agente/solicitudes">Solicitudes</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/agente/documentos">Documentos</a></li>
+                        </ul>
+                    </li>
+                </c:if>
+
+                <c:if test="${navCliente}">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Mi cuenta</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/cliente/dashboard.jsp">Panel principal</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/cliente/favoritos">Mis favoritos</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/cliente/citas">Mis citas</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/cliente/solicitudes">Mis solicitudes</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/cliente/perfil">Mi perfil</a></li>
+                        </ul>
+                    </li>
+                </c:if>
+            </ul>
+
+            <ul class="navbar-nav">
+                <c:choose>
+                    <c:when test="${navAutenticado}">
+                        <li class="nav-item">
+                            <span class="navbar-text text-white me-3">
+                                <i class="bi bi-person-circle me-1"></i>Hola, <c:out value="${sessionScope.usuario_nombre}" />
+                            </span>
+                        </li>
+                        <li class="nav-item"><a class="btn btn-outline-light btn-sm" href="${pageContext.request.contextPath}/logout"><i class="bi bi-box-arrow-right me-1"></i>Salir</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item me-2"><a class="btn btn-outline-light btn-sm" href="${pageContext.request.contextPath}/login.jsp">Iniciar sesión</a></li>
+                        <li class="nav-item"><a class="btn btn-warning btn-sm text-dark" href="${pageContext.request.contextPath}/registro.jsp"><i class="bi bi-person-plus me-1"></i>Registrarse</a></li>
+                    </c:otherwise>
+                </c:choose>
+            </ul>
+        </div>
+    </div>
+</nav>

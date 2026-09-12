@@ -1,0 +1,24 @@
+# ============================================
+# Configuración de la base de datos
+# ============================================
+# Copia este archivo como "database.properties" en:
+#   src/main/webapp/WEB-INF/classes/database.properties
+#
+# Alternativamente, puedes usar variables de entorno:
+#   DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD,
+#   DB_DRIVER, DB_SSL, DB_TIMEZONE
+#
+# O indicar una ruta externa con:
+#   -Dinmobiliaria.config="C:\ruta\database.properties"
+#   set INMOBILIARIA_CONFIG=C:\ruta\database.properties
+# ============================================
+
+db.host=localhost
+db.port=3306
+db.name=inmobiliaria_db
+db.user=root
+db.password=
+db.driver=com.mysql.cj.jdbc.Driver
+db.ssl=false
+db.timezone=UTC
+db.characterEncoding=UTF-8

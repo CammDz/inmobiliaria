@@ -1,0 +1,27 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+    String msgExito = com.inmobiliaria.util.AuthUtil.consumeMensajeExito(session);
+    String msgError = com.inmobiliaria.util.AuthUtil.consumeMensajeError(session);
+    String msgErrorRequest = (String) request.getAttribute("error");
+    if (msgExito != null) {
+        pageContext.setAttribute("msgExito", msgExito);
+    }
+    if (msgError != null) {
+        pageContext.setAttribute("msgError", msgError);
+    }
+    if (msgErrorRequest != null) {
+        pageContext.setAttribute("msgError", msgErrorRequest);
+    }
+%>
+<c:if test="${not empty msgExito}">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle me-1"></i><c:out value="${msgExito}" />
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+</c:if>
+<c:if test="${not empty msgError}">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle me-1"></i><c:out value="${msgError}" />
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+</c:if>
