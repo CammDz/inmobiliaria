@@ -7,6 +7,14 @@
 
 ---
 
+## Repositorio Git y tablero de seguimiento
+
+- **Repositorio Git (público):** `https://github.com/<TU_USUARIO>/inmobiliaria` - el historial refleja los tres sprints
+  (ver `git log --oneline`: Sprint 1, Sprint 2, Sprint 3 + fixes de seguridad).
+- **Tablero Scrum:** enlace de Padlet y capturas en `docs/TABLERO_PADLET.md`.
+
+---
+
 ## 1. Resumen del ciclo
 
 | Sprint | Foco | Principales entregables |
