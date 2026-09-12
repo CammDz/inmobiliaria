@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tablero Scrum - InmoVaIn Soluciones (Padlet)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Segoe UI", Arial, sans-serif; background: #f4f1ec; color: #222; padding: 24px; }
+  .titulo { max-width: 1400px; margin: 0 auto 8px; }
+  .titulo h1 { font-size: 24px; color: #1d3a5f; margin-bottom: 4px; }
+  .titulo .sub { color: #666; font-size: 13px; margin-bottom: 14px; }
+  .board { display: flex; gap: 16px; max-width: 1400px; margin: 0 auto; align-items: flex-start; overflow-x: auto; }
+  .columna { flex: 1; min-width: 280px; background: #e9e4da; border-radius: 12px; padding: 12px; }
+  .columna h2 { font-size: 15px; color: #1d3a5f; margin-bottom: 10px; border-bottom: 2px solid #1d3a5f; padding-bottom: 6px; }
+  .tarjeta { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,.12); border-left: 4px solid #c9a227; }
+  .tarjeta.terminada { border-left-color: #2e9e5b; }
+  .idh { font-weight: 700; color: #1d3a5f; }
+  .pri { font-size: 11px; background: #eee; border-radius: 10px; padding: 1px 8px; color: #555; }
+  .texto { font-size: 13px; margin-top: 6px; line-height: 1.4; }
+  .sello { font-size: 11px; font-weight: 700; color: #2e9e5b; margin-top: 6px; }
+  .footer { max-width: 1400px; margin: 20px auto 0; font-size: 12px; color: #888; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="titulo">
+  <h1>InmoVaIn Soluciones - Tablero Scrum</h1>
+  <div class="sub">Evidencia del tablero de seguimiento (Padlet) · Programación Java · UTS · Dayron Diaz · 3 sprints de 7 días</div>
+</div>
+
+<div class="board">
+
+  <div class="columna">
+    <h2>Product Backlog</h2>
+    <div class="tarjeta"><span class="idh">H1</span> <span class="pri">ALTA</span><div class="texto">Como visitante quiero una página de aterrizaje para conocer la inmobiliaria y buscar propiedades rápido.</div></div>
+    <div class="tarjeta"><span class="idh">H2</span> <span class="pri">ALTA</span><div class="texto">Como usuario quiero registrarme con un correo único y validado (sin duplicados).</div></div>
+    <div class="tarjeta"><span class="idh">H3</span> <span class="pri">ALTA</span><div class="texto">Como usuario quiero iniciar y cerrar sesión de forma segura y llegar a mi panel según mi rol.</div></div>
+    <div class="tarjeta"><span class="idh">H4</span> <span class="pri">ALTA</span><div class="texto">Como administrador quiero asignar y revocar roles a los usuarios.</div></div>
+    <div class="tarjeta"><span class="idh">H5</span> <span class="pri">MEDIA</span><div class="texto">Como cliente quiero completar mi perfil con documento, teléfono y dirección.</div></div>
+    <div class="tarjeta"><span class="idh">H6</span> <span class="pri">ALTA</span><div class="texto">Como agente quiero registrar y editar propiedades con fotos, características y precio.</div></div>
+    <div class="tarjeta"><span class="idh">H7</span> <span class="pri">ALTA</span><div class="texto">Como cliente quiero buscar y filtrar por ciudad, tipo, precio y características.</div></div>
+    <div class="tarjeta"><span class="idh">H8</span> <span class="pri">MEDIA</span><div class="texto">Como cliente quiero marcar propiedades como favoritas.</div></div>
+    <div class="tarjeta"><span class="idh">H9</span> <span class="pri">MEDIA</span><div class="texto">Como cliente quiero solicitar una cita en un horario disponible.</div></div>
+    <div class="tarjeta"><span class="idh">H10</span> <span class="pri">MEDIA</span><div class="texto">Como cliente quiero radicar documentos de compra/arriendo y consultar el estado.</div></div>
+    <div class="tarjeta"><span class="idh">H11</span> <span class="pri">MEDIA</span><div class="texto">Como agente quiero aprobar o rechazar solicitudes y documentos.</div></div>
+    <div class="tarjeta"><span class="idh">H12</span> <span class="pri">MEDIA</span><div class="texto">Como administrador quiero reportes de agregación para tomar decisiones.</div></div>
+    <div class="tarjeta"><span class="idh">H13</span> <span class="pri">BAJA</span><div class="texto">Como administrador quiero consultar la auditoría de accesos y cambios.</div></div>
+  </div>
+
+  <div class="columna">
+    <h2>Sprint 1 · Cimientos y acceso</h2>
+    <div class="tarjeta terminada"><span class="idh">H1</span><div class="texto">Landing page con buscador rápido y propiedades destacadas.</div><div class="sello">TERMINADO</div></div>
+    <div class="tarjeta terminada"><span class="idh">H2</span><div class="texto">Registro de usuarios con correo UNIQUE y contraseñas BCrypt.</div><div class="sello">TERMINADO</div></div>
+    <div class="tarjeta terminada"><span class="idh">H3</span><div class="texto">Login/logout seguros con redirección al panel por rol y control de acceso por filtro.</div><div class="sello">TERMINADO</div></div>
+    <div class="tarjeta terminada"><span class="idh">TEC</span><div class="texto">MER, modelo relacional 3FN, diccionario de datos y script DDL/DML.</div><div class="sello">TERMINADO</div></div>
+    <div class="tarjeta terminada"><span class="idh">TEC</span><div class="texto">Conexión JDBC centralizada y configurable (local + en línea).</div><div class="sello">TERMINADO</div></div>
+  </div>
+
+  <div class="columna">
+    <h2>Sprint 2 · Núcleo del negocio</h2>
+    <div class="tarjeta terminada"><span class="idh">H4</span><div class="texto">Administración de usuarios y asignación/revocación de roles.</div><div class="sello">TERMINADO</div></div>
+    <div class="tarjeta terminada"><span class="idh">H5</span><div class="texto">Perfil del cliente (relación 1:1 usuario-perfil).</div><div class="sello">TERMINADO</div></div>
+    <div class="tarjeta terminada"><span class="idh">H6</span><div class="texto">CRUD de propiedades con galería de imágenes (1:N) y características (N:M), baja lógica.</div><div class="sello">TERMINADO</div></div>
+    <div class="tarjeta terminada"><span class="idh">H7</span><div class="texto">Catálogo público con filtros por ciudad, tipo, precio, características y término.</div><div class="sello">TERMINADO</div></div>
+  </div>
+
+  <div class="columna">
+    <h2>Sprint 3 · Operación y cierre</h2>
+    <div class="tarjeta terminada"><span class="idh">H8</span><div class="texto">Favoritos del cliente.</div><div class="sello">TERMINADO</div></div>
+    <div class="tarjeta terminada"><span class="idh">H9</span><div class="texto">Citas de visita sin cruces de agenda (validación + UNIQUE).</div><div class="sello">TERMINADO</div></div>
+    <div class="tarjeta terminada"><span class="idh">H10</span><div class="texto">Radicación de documentos y consulta del estado de solicitudes.</div><div class="sello">TERMINADO</div></div>
+    <div class="tarjeta terminada"><span class="idh">H11</span><div class="texto">Aprobación/rechazo de solicitudes y documentos por el agente.</div><div class="sello">TERMINADO</div></div>
+    <div class="tarjeta terminada"><span class="idh">H12</span><div class="texto">Reportes SQL (INNER JOIN 3+ tablas, N:M, LEFT JOIN, GROUP BY + HAVING).</div><div class="sello">TERMINADO</div></div>
+    <div class="tarjeta terminada"><span class="idh">H13</span><div class="texto">Auditoría de accesos y cambios.</div><div class="sello">TERMINADO</div></div>
+    <div class="tarjeta terminada"><span class="idh">TEC</span><div class="texto">Pruebas unitarias y funcionales, despliegue de BD local y en línea.</div><div class="sello">TERMINADO</div></div>
+  </div>
+
+</div>
+
+<div class="footer">Evidencia del tablero Padlet - InmoVaIn Soluciones - UTS / Programación Java</div>
+
+</body>
+</html>
