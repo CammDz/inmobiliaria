@@ -27,7 +27,7 @@ Aplicación web para la gestión integral de una inmobiliaria construida con **J
 
 ## Repositorio, tablero y evidencia
 
-- **Git:** repositorio público en `https://github.com/<TU_USUARIO>/inmobiliaria` (historial de commits por sprint).
+- **Git:** repositorio público en `https://github.com/CammDz/inmobiliaria` (historial de commits por sprint).
 - **Tablero Scrum (Padlet):** `docs/TABLERO_PADLET.md`.
 - **Documentación:** MER y modelo relacional en `MODELO_RELACIONAL.md`, diccionario de datos en `DICCIONARIO_DATOS.md`,
   sprints en `docs/SPRINT1.md`, `docs/SPRINT2.md`, `docs/SPRINT3.md` y cierre en `SCRUM_FINAL.md`.
