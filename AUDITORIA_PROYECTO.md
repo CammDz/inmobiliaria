@@ -58,7 +58,7 @@
 | 3.4 | **Scripts DML con 10+ registros por tabla principal** | El `04_seed.sql` solo carga roles, inmobiliarias, ciudades, tipos y características. Usuarios/propiedades/citas se crean por Java (no por SQL). |
 | 3.5 | **Script de reinicio/limpieza de BD** | No existe. |
 | 3.6 | **Pruebas unitarias** | No hay JUnit ni carpeta `src/test/java`. |
-| 3.7 | **Documentación exigida por el parcial** | Faltan `INSTALACION_LOCAL.md`, `BASE_DATOS_EN_LINEA.md`, `MER_DBEAVER.md`, `MODELO_RELACIONAL.md`, `DICCIONARIO_DATOS.md`, `CONSULTAS_SQL.md`, `PRUEBAS_FUNCIONALES.md`, `SCRUM_FINAL.md`. |
+| 3.7 | **Documentación exigida por el parcial** | Resuelto (12/09/2026): existen `INSTALACION_LOCAL.md`, `BASE_DATOS_EN_LINEA.md`, `MER_DBEAVER.md`, `MODELO_RELACIONAL.md`, `DICCIONARIO_DATOS.md`, `CONSULTAS_SQL.md`, `PRUEBAS_FUNCIONALES.md`, `SCRUM_FINAL.md` y `docs/`. |
 | 3.8 | **Rol VISITANTE explícito** | No existe como rol en BD. El visitante se modela como "no autenticado". Decisión aceptable, pero debe documentarse. |
 | 3.9 | **Subida de imágenes por archivo** | El agente solo puede registrar imágenes por URL, no subir archivos. |
 | 3.10 | **`fecha_nacimiento` y `foto_url` en perfil de admin/agente** | El formulario de perfil solo existe para cliente. |
@@ -120,7 +120,7 @@
 1. El README describe una estructura con `agentes/` que no coincide con `src` (`agente/`).
 2. El README indica Java 8+ y Tomcat 9.x, pero el entorno probado usa Tomcat 8.5.96.
 3. `docs/SPRINT3.md` afirma "58 clases compiladas"; en realidad son **59** clases fuente.
-4. Faltan todos los documentos exigidos en la sección 3.7.
+4. Resuelto (12/09/2026): todos los documentos exigidos en la sección 3.7 existen.
 
 ## 9. Lista priorizada de tareas pendientes
 

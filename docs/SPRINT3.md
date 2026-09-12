@@ -24,7 +24,7 @@ Completar la auditoría y los reportes SQL, sembrar datos de demostración 10+ p
 - [x] README + documentación técnica + 3 sprints Scrum.
 
 ## Sprint Review
-- **Logros:** 8 reportes SQL documentados; auditoría completa con IP; siembra idempotente que arranca al desplegar; WAR/estructura lista para Tomcat; compilación de **58 clases Java** sin errores.
+- **Logros:** 8 reportes SQL documentados; auditoría completa con IP; siembra idempotente que arranca al desplegar; WAR/estructura lista para Tomcat; compilación de **59 clases Java** sin errores.
 - **Métricas:** DoD cumplido; entrega lista para despliegue en `http://localhost:8080/`.
 
 ## Retrospective
