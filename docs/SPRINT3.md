@@ -35,9 +35,3 @@ Completar la auditoría y los reportes SQL, sembrar datos de demostración 10+ p
 - Imágenes reales en `images/` (hoy placeholder).
 - Pruebas automatizadas (JUnit) y CI.
 - Soporte multi-idioma y notificaciones por correo.
-
-### Acciones de cierre
-| Acción | Estado |
-|--------|--------|
-| Revisar enlaces rotos y accesos cruzados | Hecho |
-| Organizar repositorio con Git | Pase final del equipo |
