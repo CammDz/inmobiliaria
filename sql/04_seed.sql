@@ -9,12 +9,13 @@
 USE inmobiliaria_db;
 
 -- ============================================
--- ROLES (3)
+-- ROLES (4)
 -- ============================================
 INSERT INTO rol (nombre, descripcion) VALUES
 ('Administrador', 'Acceso total al sistema'),
 ('Agente Inmobiliario', 'Gestiona propiedades, citas y solicitudes'),
-('Cliente', 'Busca propiedades, solicita citas y gestiona favoritos');
+('Cliente', 'Busca propiedades, solicita citas y gestiona favoritos'),
+('Visitante', 'Usuario no autenticado que navega el catálogo público y el detalle de propiedades');
 
 -- ============================================
 -- INMOBILIARIAS (10)
@@ -167,7 +168,7 @@ INSERT INTO imagen_propiedad (id_propiedad, url_imagen, es_principal, activa) VA
 (15, 'images/propiedades/prop15_1.jpg', 1, 1), (15, 'images/propiedades/prop15_2.jpg', 0, 1);
 
 -- ============================================
--- PROPIEDAD_CARACTERISTICA (N:M) - 27 relaciones
+-- PROPIEDAD_CARACTERISTICA (N:M) - 50 relaciones
 -- ============================================
 INSERT INTO propiedad_caracteristica (id_propiedad, id_caracteristica) VALUES
 (1, 1), (1, 3), (1, 7), (1, 9), (1, 12), (1, 13),

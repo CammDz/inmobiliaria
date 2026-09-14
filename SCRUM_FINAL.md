@@ -29,7 +29,7 @@
 
 | Criterio | Estado |
 |----------|--------|
-| Compilación sin errores (59 clases, `javac --release 11`) | [OK] PASS |
+| Compilación sin errores (64 clases, `javac --release 11`) | [OK] PASS |
 | 17 tablas creadas desde SQL (02-04) con FKs, UNIQUE e índices | [OK] PASS |
 | Datos de prueba: 10+ registros por tabla principal | [OK] PASS (rol 3, usuario 12, propiedad 15, cita 12, solicitud 12, favorito 12...) |
 | Login por roles con redirección correcta | [OK] PASS |
@@ -56,7 +56,7 @@
 | Usuarios de demostración (seed) | 12 (todos con BCrypt) |
 | Propiedades de demostración | 15 (+30 imágenes) |
 | Casos de prueba funcionales | 34 - todos PASS |
-| Artefacto de entrega | `build/inmobiliaria.war` (~14,3 MB) |
+| Artefacto de entrega | `build/inmobiliaria.war` (~6,5 MB) |
 
 ---
 

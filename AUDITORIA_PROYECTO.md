@@ -33,7 +33,7 @@
 
 ## 2. Funcionalidades que funcionan (verificadas ejecutando)
 
-1. **Compilación**: 59 clases Java compilan sin errores ni advertencias con `javac --release 11`.
+1. **Compilación**: 64 clases Java compilan sin errores ni advertencias con `javac --release 11`.
 2. **Creación de base de datos**: los 4 scripts (`01`-`04`) se ejecutan correctamente en MariaDB 10.4.32.
 3. **Despliegue**: la aplicación se despliega en Tomcat 8.5.96 (el de XAMPP) con JDK 21.
 4. **`DataInitializer`**: al primer arranque sembró 5 usuarios, 5 perfiles, 15 propiedades,
@@ -59,7 +59,7 @@
 | 3.5 | **Script de reinicio/limpieza de BD** | No existe. |
 | 3.6 | **Pruebas unitarias** | No hay JUnit ni carpeta `src/test/java`. |
 | 3.7 | **Documentación exigida por el parcial** | Resuelto (12/09/2026): existen `INSTALACION_LOCAL.md`, `BASE_DATOS_EN_LINEA.md`, `MER_DBEAVER.md`, `MODELO_RELACIONAL.md`, `DICCIONARIO_DATOS.md`, `CONSULTAS_SQL.md`, `PRUEBAS_FUNCIONALES.md`, `SCRUM_FINAL.md` y `docs/`. |
-| 3.8 | **Rol VISITANTE explícito** | No existe como rol en BD. El visitante se modela como "no autenticado". Decisión aceptable, pero debe documentarse. |
+| 3.8 | **Rol VISITANTE explícito** | El rol `Visitante` quedó agregado al seed (`sql/04_seed.sql`) y en la BD en línea (id 4). El visitante se modela como "no autenticado": navega catálogo y detalle. |
 | 3.9 | **Subida de imágenes por archivo** | El agente solo puede registrar imágenes por URL, no subir archivos. |
 | 3.10 | **`fecha_nacimiento` y `foto_url` en perfil de admin/agente** | El formulario de perfil solo existe para cliente. |
 

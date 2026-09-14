@@ -63,7 +63,7 @@ Con las librerías de `lib/` en el classpath, desde la raíz del proyecto:
   -cp "lib\*" -d build\classes src\main\java\**\*.java
 ```
 
-Resultado verificable: **59 clases** compiladas sin errores.
+Resultado verificable: **64 clases** compiladas sin errores.
 
 ## 5. Paso 4 - Desplegar en Tomcat
 

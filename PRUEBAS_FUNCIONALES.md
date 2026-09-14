@@ -10,13 +10,13 @@ Método usado: `curl` (HTTP) + `mysql` (consulta BD). Resultado: **PASS** = prob
 
 | # | Caso | Pasos | Resultado esperado | Resultado real | Estado |
 |---|------|-------|--------------------|----------------|--------|
-| 1.1 | Compilar 59 clases | `javac --release 11 -encoding UTF-8 -parameters -cp lib/*.jar -d build/classes` | Código de salida 0 | EXIT 0 | **PASS** |
+| 1.1 | Compilar 64 clases | `javac --release 11 -encoding UTF-8 -parameters -cp lib/*.jar -d build/classes` | Código de salida 0 | EXIT 0 | **PASS** |
 
 ## 2. Base de datos (SQL)
 
 | # | Caso | Pasos | Resultado esperado | Resultado real | Estado |
 |---|------|-------|--------------------|----------------|--------|
-| 2.1 | Ejecutar scripts 02-04 | `mysql < 02_tables.sql` -> 03 -> 04 | 17 tablas creadas, seed insertado | 17 tablas; rol=3, usuario=12, propiedad=15, cita=12, solicitud=12, favorito=12 | **PASS** |
+| 2.1 | Ejecutar scripts 02-04 | `mysql < 02_tables.sql` -> 03 -> 04 | 17 tablas creadas, seed insertado | 17 tablas; rol=4, usuario=12, propiedad=15, cita=12, solicitud=12, favorito=12 | **PASS** |
 | 2.2 | UNIQUE en favorito | Insertar par duplicado | Rechazado (error 1062) | Cumple UNIQUE (id_cliente,id_propiedad) | **PASS** |
 | 2.3 | UNIQUE en cita | Mismo cliente/propiedad/fecha/hora duplicado | Rechazado | Restricción `uq_cita_cliente_propiedad_fecha_hora` presente | **PASS** |
 
@@ -76,7 +76,7 @@ Método usado: `curl` (HTTP) + `mysql` (consulta BD). Resultado: **PASS** = prob
 
 | # | Caso | Resultado real | Estado |
 |---|------|----------------|--------|
-| 8.1 | Generar WAR | `jar cf build/inmobiliaria.war` (14.282.796 bytes) | **PASS** |
+| 8.1 | Generar WAR | `jar cf build/inmobiliaria.war` (6.472.733 bytes) | **PASS** |
 | 8.2 | Desplegar WAR en contexto separado | `webapps/inmovain_war.war` -> GET index 200 | **PASS** |
 | 8.3 | Login sobre el WAR | POST /login (cliente1) -> 302 `/cliente/dashboard.jsp` | **PASS** |
 

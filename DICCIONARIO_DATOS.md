@@ -176,6 +176,6 @@ Convenciones: **PK** = clave primaria, **FK** = clave foránea, **UQ** = valor �
 | fecha_creacion | TIMESTAMP | DEFAULT CURRENT_TIMESTAMP | Fecha de generación |
 
 ## Resumen de conteos del seed (04_seed.sql)
-rol=3, usuario=12, perfil=12, inmobiliaria=10, ciudad=10, tipo_propiedad=10,
+rol=4, usuario=12, perfil=12, inmobiliaria=10, ciudad=10, tipo_propiedad=10,
 propiedad=15, imagen_propiedad=30, caracteristica=15, propiedad_caracteristica=50,
 cita=12, solicitud=12, documento_solicitud=4, favorito=12, auditoria=6.
