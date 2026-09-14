@@ -17,4 +17,17 @@ public class Caracteristica implements Serializable {
     public void setNombre(String nombre) { this.nombre = nombre; }
     public String getDescripcion() { return descripcion; }
     public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Caracteristica other = (Caracteristica) o;
+        return idCaracteristica == other.idCaracteristica;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(idCaracteristica);
+    }
 }

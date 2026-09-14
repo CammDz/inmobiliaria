@@ -95,7 +95,7 @@
                                         <span><i class="bi bi-file-earmark me-2 text-primary"></i>
                                             <c:out value="${d.tipoDocumento}" /> — <c:out value="${d.nombreArchivo}" />
                                         </span>
-                                        <a href="${pageContext.request.contextPath}<c:out value='${d.rutaArchivo}' />" target="_blank"
+                                        <a href="${pageContext.request.contextPath}${d.rutaArchivo}" target="_blank"
                                            class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Ver</a>
                                     </li>
                                 </c:forEach>

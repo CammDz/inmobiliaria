@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="cop" uri="http://inmovain.com/tld/precio" %>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,7 +26,7 @@
             <form action="../catalogo" method="get" class="row g-3">
                 <div class="col-md-4">
                     <label class="form-label small text-muted">Buscar</label>
-                    <input type="text" class="form-control" name="busqueda" value="${busqueda}"
+                    <input type="text" class="form-control" name="busqueda" value="${fn:escapeXml(busqueda)}"
                            placeholder="Título o descripción">
                 </div>
                 <div class="col-md-2">
@@ -48,11 +49,11 @@
                 </div>
                 <div class="col-md-2">
                     <label class="form-label small text-muted">Precio mínimo</label>
-                    <input type="number" class="form-control" name="precioMin" value="${precioMin}" min="0">
+                    <input type="number" class="form-control" name="precioMin" value="${fn:escapeXml(precioMin)}" min="0">
                 </div>
                 <div class="col-md-2">
                     <label class="form-label small text-muted">Precio máximo</label>
-                    <input type="number" class="form-control" name="precioMax" value="${precioMax}" min="0">
+                    <input type="number" class="form-control" name="precioMax" value="${fn:escapeXml(precioMax)}" min="0">
                 </div>
 
                 <div class="col-12">

@@ -51,7 +51,7 @@
                                     <td class="text-muted small"><c:out value="${d.rutaArchivo}" /></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <a href="${pageContext.request.contextPath}<c:out value='${d.rutaArchivo}' />" target="_blank"
+                                            <a href="${pageContext.request.contextPath}${d.rutaArchivo}" target="_blank"
                                                class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Ver</a>
                                             <a href="documentos?accion=eliminar&id=${d.idDocumento}&idSolicitud=${d.idSolicitud}"
                                                class="btn btn-sm btn-outline-danger"
