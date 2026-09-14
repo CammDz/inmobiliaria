@@ -9,7 +9,7 @@
     <title><c:out value="${propiedad.titulo}" /> - InmoVaIn</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
@@ -20,8 +20,8 @@
 
     <nav aria-label="breadcrumb" class="mb-3">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="../index.jsp">Inicio</a></li>
-            <li class="breadcrumb-item"><a href="../catalogo">Catálogo</a></li>
+            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/index.jsp">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/catalogo">Catálogo</a></li>
             <li class="breadcrumb-item active"><c:out value="${propiedad.titulo}" /></li>
         </ol>
     </nav>
@@ -54,7 +54,7 @@
                             </div>
                         </c:when>
                         <c:otherwise>
-                            <img src="../images/placeholder.jpg" class="d-block w-100" style="height: 420px; object-fit: cover;" alt="Sin imagen">
+                            <img src="${pageContext.request.contextPath}/images/placeholder.jpg" class="d-block w-100" style="height: 420px; object-fit: cover;" alt="Sin imagen">
                         </c:otherwise>
                     </c:choose>
 
@@ -124,13 +124,13 @@
                             </button>
                             <c:choose>
                                 <c:when test="${esFavorito}">
-                                    <a href="../propiedad?id=${propiedad.idPropiedad}&accion=favorito&idPropiedad=${propiedad.idPropiedad}&modo=quitar"
+                                    <a href="${pageContext.request.contextPath}/propiedad?id=${propiedad.idPropiedad}&accion=favorito&idPropiedad=${propiedad.idPropiedad}&modo=quitar"
                                        class="btn btn-warning w-100">
                                         <i class="bi bi-star-fill me-1"></i>Quitar de favoritos
                                     </a>
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="../propiedad?id=${propiedad.idPropiedad}&accion=favorito&idPropiedad=${propiedad.idPropiedad}&modo=agregar"
+                                    <a href="${pageContext.request.contextPath}/propiedad?id=${propiedad.idPropiedad}&accion=favorito&idPropiedad=${propiedad.idPropiedad}&modo=agregar"
                                        class="btn btn-outline-warning w-100">
                                         <i class="bi bi-star me-1"></i>Agregar a favoritos
                                     </a>
@@ -139,18 +139,18 @@
                         </c:when>
                         <c:when test="${autenticado}">
                             <p class="text-muted small">Regístrate como cliente para solicitar citas, favoritos y solicitudes.</p>
-                            <a href="../catalogo" class="btn btn-primary w-100">Ver más propiedades</a>
+                            <a href="${pageContext.request.contextPath}/catalogo" class="btn btn-primary w-100">Ver más propiedades</a>
                         </c:when>
                         <c:otherwise>
                             <p class="text-muted small">Inicia sesión o regístrate para solicitar citas, guardar favoritos y enviar solicitudes.</p>
-                            <a href="../login.jsp" class="btn btn-primary w-100 mb-2"><i class="bi bi-box-arrow-in-right me-1"></i>Iniciar sesión</a>
-                            <a href="../registro.jsp" class="btn btn-outline-primary w-100">Registrarse</a>
+                            <a href="${pageContext.request.contextPath}/login.jsp" class="btn btn-primary w-100 mb-2"><i class="bi bi-box-arrow-in-right me-1"></i>Iniciar sesión</a>
+                            <a href="${pageContext.request.contextPath}/registro.jsp" class="btn btn-outline-primary w-100">Registrarse</a>
                         </c:otherwise>
                     </c:choose>
 
                     <!-- Formulario CITA -->
                     <div class="collapse mt-3" id="formCita">
-                        <form action="../cliente/citas" method="post">
+                        <form action="${pageContext.request.contextPath}/cliente/citas" method="post">
                             <input type="hidden" name="accion" value="crear">
                             <input type="hidden" name="idPropiedad" value="${propiedad.idPropiedad}">
                             <div class="mb-2">
@@ -171,7 +171,7 @@
 
                     <!-- Formulario SOLICITUD -->
                     <div class="collapse mt-3" id="formSolicitud">
-                        <form action="../cliente/solicitudes" method="post">
+                        <form action="${pageContext.request.contextPath}/cliente/solicitudes" method="post">
                             <input type="hidden" name="accion" value="crear">
                             <input type="hidden" name="idPropiedad" value="${propiedad.idPropiedad}">
                             <div class="mb-2">

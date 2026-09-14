@@ -10,7 +10,7 @@
     <title>Catálogo de propiedades - InmoVaIn</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
@@ -23,7 +23,7 @@
     <!-- FILTROS -->
     <div class="card shadow-sm border-0 mb-4">
         <div class="card-body">
-            <form action="../catalogo" method="get" class="row g-3">
+            <form action="${pageContext.request.contextPath}/catalogo" method="get" class="row g-3">
                 <div class="col-md-4">
                     <label class="form-label small text-muted">Buscar</label>
                     <input type="text" class="form-control" name="busqueda" value="${fn:escapeXml(busqueda)}"
@@ -72,7 +72,7 @@
 
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary"><i class="bi bi-funnel me-1"></i>Aplicar filtros</button>
-                    <a href="../catalogo" class="btn btn-outline-secondary">Limpiar</a>
+                    <a href="${pageContext.request.contextPath}/catalogo" class="btn btn-outline-secondary">Limpiar</a>
                 </div>
             </form>
         </div>
@@ -84,7 +84,7 @@
             <div class="text-center py-5">
                 <i class="bi bi-search text-muted" style="font-size: 3rem;"></i>
                 <p class="text-muted mt-3">No se encontraron propiedades con los criterios seleccionados.</p>
-                <a href="../catalogo" class="btn btn-outline-primary">Ver todo el catálogo</a>
+                <a href="${pageContext.request.contextPath}/catalogo" class="btn btn-outline-primary">Ver todo el catálogo</a>
             </div>
         </c:when>
         <c:otherwise>
@@ -115,7 +115,7 @@
                                     <c:if test="${p.banos > 0}"><span class="me-2"><i class="bi bi-droplet-fill"></i> ${p.banos}</span></c:if>
                                     <c:if test="${p.areaM2 > 0}"><span><i class="bi bi-arrows-angle-expand"></i> ${p.areaM2} m²</span></c:if>
                                 </p>
-                                <a href="../propiedad?id=${p.idPropiedad}" class="btn btn-sm btn-outline-primary w-100">Ver detalle</a>
+                                <a href="${pageContext.request.contextPath}/propiedad?id=${p.idPropiedad}" class="btn btn-sm btn-outline-primary w-100">Ver detalle</a>
                             </div>
                         </div>
                     </div>
