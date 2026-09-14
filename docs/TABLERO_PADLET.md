@@ -67,12 +67,3 @@ conexión JDBC, filtro de rutas).
 | ~~H12~~ | ~~H12~~ | **H12** - Reportes (INNER JOIN, N:M, LEFT JOIN, GROUP BY+HAVING) |
 | ~~H13~~ | ~~H13~~ | **H13** - Auditoría de accesos |
 | ~~Pruebas~~ | ~~Despliegue~~ | **Pruebas + despliegue** (BD local y en línea) |
-
----
-
-## Evidencia (sustentación)
-
-1. Enlace del Padlet (pegar arriba).
-2. Captura de pantalla del tablero completo → `docs/captura-tablero.png`.
-3. El repositorio Git con el historial de commits queda evidenciado en
-   `SCRUM_FINAL.md` y en el README del repo.
