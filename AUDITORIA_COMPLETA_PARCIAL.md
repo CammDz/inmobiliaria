@@ -22,7 +22,7 @@ hallazgos puntuales y se documentó cada cumplimiento con su evidencia.
 - **18 entidades** en base de datos (17 tablas + 1 tabla de `token_recuperacion`), FKs y
   restricciones UNIQUE aplicadas en MariaDB 10.4.32 real.
 - **64 clases Java** compilan limpias con `javac --release 11` (EXIT 0).
-- **WAR desplegable** generado: `build/inmobiliaria.war` (6 472 733 bytes, con las nuevas fotos reales de las 15 propiedades).
+- **WAR desplegable** generado: `build/inmobiliaria.war` (6 473 013 bytes, con las nuevas fotos reales de las 15 propiedades).
 - **Datos de prueba**: todas las tablas principales superan 10 registros (ver §4).
 - **Seguridad**: BCrypt, sesión antifijación, cookie HttpOnly + tracking COOKIE, control de
   acceso por rol (`AuthFilter`), XSS corregido en esta revisión, MIME de subida validado.

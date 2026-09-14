@@ -76,7 +76,7 @@ Método usado: `curl` (HTTP) + `mysql` (consulta BD). Resultado: **PASS** = prob
 
 | # | Caso | Resultado real | Estado |
 |---|------|----------------|--------|
-| 8.1 | Generar WAR | `jar cf build/inmobiliaria.war` (6.472.733 bytes) | **PASS** |
+| 8.1 | Generar WAR | `jar cf build/inmobiliaria.war` (6.473.013 bytes) | **PASS** |
 | 8.2 | Desplegar WAR en contexto separado | `webapps/inmovain_war.war` -> GET index 200 | **PASS** |
 | 8.3 | Login sobre el WAR | POST /login (cliente1) -> 302 `/cliente/dashboard.jsp` | **PASS** |
 

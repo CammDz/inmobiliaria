@@ -71,9 +71,12 @@ public class PropiedadDAO {
         sql.append(" WHERE p.activa = 1");
 
         if (termino != null && !termino.trim().isEmpty()) {
-            sql.append(" AND (p.titulo LIKE ? OR p.descripcion LIKE ?)");
-            params.add("%" + termino.trim() + "%");
-            params.add("%" + termino.trim() + "%");
+            sql.append(" AND (p.titulo LIKE ? OR p.descripcion LIKE ? OR c.nombre LIKE ? ")
+               .append(" OR c.departamento LIKE ? OR tp.nombre LIKE ? OR p.direccion LIKE ?)");
+            String patron = "%" + termino.trim() + "%";
+            for (int i = 0; i < 6; i++) {
+                params.add(patron);
+            }
         }
         if (idCiudad != null && idCiudad > 0) {
             sql.append(" AND p.id_ciudad = ?");

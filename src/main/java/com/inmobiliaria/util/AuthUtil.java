@@ -92,6 +92,17 @@ public class AuthUtil {
      * Obtiene la IP del cliente.
      */
     public static String getIp(HttpServletRequest request) {
-        return request.getRemoteAddr();
+        String ip = null;
+        String fwd = request.getHeader("X-Forwarded-For");
+        if (fwd != null && !fwd.trim().isEmpty()) {
+            ip = fwd.split(",")[0].trim();
+        }
+        if (ip == null || ip.isEmpty()) {
+            ip = request.getRemoteAddr();
+        }
+        if ("0:0:0:0:0:0:0:1".equals(ip) || "::1".equals(ip)) {
+            ip = "127.0.0.1";
+        }
+        return ip;
     }
 }
