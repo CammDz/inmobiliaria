@@ -5,8 +5,7 @@
 -- Ejecutar sobre una base vacía (después de 01, 02 y 03).
 -- En MySQL/MariaDB:   mysql -u root -p < sql/04_seed.sql
 -- ============================================
-
-USE b4wfxuuy1vfroipr47zb;
+-- El nombre de la base se pasa como argumento del cliente mysql (no hay USE).
 
 -- ============================================
 -- ROLES (4)

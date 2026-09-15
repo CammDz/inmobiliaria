@@ -1,15 +1,12 @@
 -- ============================================
 -- SCRIPT 00 (REMOTO): REINICIO DE LA BASE REMOTA
--- Base remota: b4wfxuuy1vfroipr47zb
 -- NOTA: En los proveedores en la nube la base de datos YA EXISTE y el usuario
 --       NO puede ejecutar DROP DATABASE / CREATE DATABASE. Este script solo
 --       elimina las 17 tablas para poder reimportar desde cero.
 -- Después ejecutar en orden: 02, 03, 04.
--- Ejemplo:
---   mysql -h HOST_REMOTO -u USUARIO -p --default-character-set=utf8mb4 b4wfxuuy1vfroipr47zb < sql/remoto/00_reset.sql
+-- El nombre de la base se pasa como último argumento del cliente mysql (no hay USE):
+--   mysql -h HOST_REMOTO -u USUARIO -p --default-character-set=utf8mb4 NOMBRE_BD < sql/remoto/00_reset.sql
 -- ============================================
-
-USE b4wfxuuy1vfroipr47zb;
 
 SET FOREIGN_KEY_CHECKS = 0;
 

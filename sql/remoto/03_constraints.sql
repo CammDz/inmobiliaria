@@ -2,8 +2,7 @@
 -- SCRIPT 03: RESTRICCIONES E ÍNDICES
 -- Proyecto: Inmobiliaria - Aplicación Web
 -- ============================================
-
-USE b4wfxuuy1vfroipr47zb;
+-- El nombre de la base se pasa como argumento del cliente mysql (no hay USE).
 
 -- ============================================
 -- FOREIGN KEYS
