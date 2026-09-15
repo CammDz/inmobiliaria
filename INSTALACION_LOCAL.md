@@ -63,7 +63,7 @@ Con las librerías de `lib/` en el classpath, desde la raíz del proyecto:
   -cp "lib\*" -d build\classes src\main\java\**\*.java
 ```
 
-Resultado verificable: **64 clases** compiladas sin errores.
+Resultado verificable: **65 clases** compiladas sin errores.
 
 ## 5. Paso 4 - Desplegar en Tomcat
 
@@ -73,6 +73,10 @@ Resultado verificable: **64 clases** compiladas sin errores.
 - Tomcat requiere `CATALINA_HOME=C:\xampp\tomcat` y `JAVA_HOME` apuntando al JDK.
 - Iniciar con `startup.bat` y esperar ~15 segundos.
 - La app queda en: **http://localhost:8080/inmobiliaria/**
+
+Alternativa: en lugar de copiar la webapp explotada, se puede desplegar el
+war ya empaquetado `build/inmobiliaria.war` (compilado con `javac` y las
+librerías de `lib/` en `WEB-INF/lib`).
 
 ## 6. Paso 5 - Probar con datos de prueba
 
@@ -87,8 +91,9 @@ Verificar:
 1. Landing page con buscador y destacadas.
 2. Login/registro (el registro rechaza correos duplicados con mensaje claro).
 3. Al ingresar con cada rol, la redirección llega a su panel (`/admin/`, `/agente/`,
-   `/cliente/`). Escribir `/agente/dashboard.jsp` como cliente redirige a
-   `acceso-denegado.jsp` (control por filtro, no solo ocultando menús).
+   `/cliente/`). Escribir `/agente/dashboard.jsp` como cliente devuelve **HTTP 403** y
+   muestra `acceso-denegado.jsp` (página de error registrada en `web.xml`) por control
+   del `AuthFilter`, no solo ocultando menús.
 4. CRUD de propiedades, galería de imágenes y características; citas; solicitudes
    con subida de documentos; reportes; auditoría.
 5. Acentos correctos (ej. "Ramírez", "Atlántico") gracias al encoding UTF-8 en
@@ -98,7 +103,7 @@ Verificar:
 
 - Login HTTP probado: `agente2` → panel agente ("Hola, Diana Pérez" con acentos OK).
 - Control de acceso probado: visita anónima a `/agente/*` → 302 a login;
-  cliente → `acceso-denegado.jsp`.
+  cliente → HTTP 403 y `acceso-denegado.jsp`.
 - Reportes con las 5 consultas obligatorias documentadas en `CONSULTAS_SQL.md`.
 - BD local con 10+ registros por tabla principal y BD en línea (ver
   `BASE_DATOS_EN_LINEA.md`).
