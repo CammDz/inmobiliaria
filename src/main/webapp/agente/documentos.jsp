@@ -53,9 +53,13 @@
                                         <div class="d-flex gap-1">
                                             <a href="${pageContext.request.contextPath}/documentos/archivo?id=${d.idDocumento}" target="_blank"
                                                class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Ver</a>
-                                            <a href="documentos?accion=eliminar&idDocumento=${d.idDocumento}&idSolicitud=${d.idSolicitud}"
-                                               class="btn btn-sm btn-outline-danger"
-                                               onclick="return confirm('¿Eliminar este documento?');"><i class="bi bi-trash"></i></a>
+                                            <form action="documentos" method="post" class="d-inline"
+                                                  onsubmit="return confirm('¿Eliminar este documento?');">
+                                                <input type="hidden" name="accion" value="eliminar">
+                                                <input type="hidden" name="idDocumento" value="${d.idDocumento}">
+                                                <input type="hidden" name="idSolicitud" value="${d.idSolicitud}">
+                                                <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>

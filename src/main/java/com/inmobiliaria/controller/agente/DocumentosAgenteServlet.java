@@ -66,7 +66,9 @@ public class DocumentosAgenteServlet extends HttpServlet {
                 AuthUtil.setMensajeError(request.getSession(), "No se pudo eliminar el documento.");
             }
         }
-        response.sendRedirect(request.getContextPath() + "/agente/documentos");
+        String filter = request.getParameter("idSolicitud");
+        response.sendRedirect(request.getContextPath() + "/agente/documentos"
+                + (filter != null && !filter.trim().isEmpty() ? "?idSolicitud=" + filter : ""));
     }
 
     private int parsearId(String valor) {

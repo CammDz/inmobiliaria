@@ -24,6 +24,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Time;
 import java.sql.Date;
 import java.util.List;
@@ -59,10 +60,33 @@ public class DataInitializer implements ServletContextListener {
             return;
         }
         try {
+            verificarColumnaDocumentos();
             semillaUsuarios();
             semillaPropiedades();
         } catch (Exception e) {
             System.err.println("[DataInitializer] Error durante la inicialización de datos: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Migración automática: agrega la columna MEDIUMBLOB que guarda el contenido
+     * de los documentos (el disco de Render es efímero). Es idempotente.
+     */
+    private void verificarColumnaDocumentos() {
+        String sqlBuscar = "SELECT COUNT(*) FROM information_schema.COLUMNS "
+                + "WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'documento_solicitud' AND COLUMN_NAME = 'contenido'";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sqlBuscar);
+             ResultSet rs = ps.executeQuery()) {
+            boolean existe = rs.next() && rs.getInt(1) > 0;
+            if (!existe) {
+                try (Statement st = conn.createStatement()) {
+                    st.execute("ALTER TABLE documento_solicitud ADD COLUMN contenido MEDIUMBLOB NULL AFTER tipo_documento");
+                    System.out.println("[DataInitializer] Columna contenido agregada a documento_solicitud.");
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("[DataInitializer] No se pudo verificar/crear la columna contenido: " + e.getMessage());
         }
     }
 
