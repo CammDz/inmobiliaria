@@ -53,6 +53,13 @@
             <version>2.3.3</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- HikariCP para pool de conexiones -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>5.1.0</version>
+        </dependency>
     </dependencies>
 
     <build>
