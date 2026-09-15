@@ -54,21 +54,21 @@ public class AuthFilter implements Filter {
         // Verificar permiso según la ruta
         if (ruta.startsWith("/admin/")) {
             if (roles == null || !roles.contains("Administrador")) {
-                resp.sendRedirect(req.getContextPath() + "/acceso-denegado.jsp");
+                resp.sendError(HttpServletResponse.SC_FORBIDDEN);
                 return;
             }
         } else if (ruta.startsWith("/agente/")) {
             // El Administrador tiene acceso total, incluidas las rutas de agente.
             if (roles == null
                     || (!roles.contains("Administrador") && !roles.contains("Agente Inmobiliario"))) {
-                resp.sendRedirect(req.getContextPath() + "/acceso-denegado.jsp");
+                resp.sendError(HttpServletResponse.SC_FORBIDDEN);
                 return;
             }
         } else if (ruta.startsWith("/cliente/")) {
             // El Administrador tiene acceso total, incluidas las rutas de cliente.
             if (roles == null
                     || (!roles.contains("Administrador") && !roles.contains("Cliente"))) {
-                resp.sendRedirect(req.getContextPath() + "/acceso-denegado.jsp");
+                resp.sendError(HttpServletResponse.SC_FORBIDDEN);
                 return;
             }
         }

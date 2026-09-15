@@ -7,7 +7,7 @@
     <title>Acceso denegado - InmoVaIn</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/css/style.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
@@ -26,10 +26,10 @@
                 boolean sesionActiva = session != null && session.getAttribute("usuario_id") != null;
             %>
             <% if (sesionActiva) { %>
-                <a href="index.jsp" class="btn btn-primary"><i class="bi bi-house me-1"></i>Volver al inicio</a>
+                <a href="<%= request.getContextPath() %>/index.jsp" class="btn btn-primary"><i class="bi bi-house me-1"></i>Volver al inicio</a>
             <% } else { %>
-                <a href="login.jsp" class="btn btn-primary"><i class="bi bi-box-arrow-in-right me-1"></i>Iniciar sesión</a>
-                <a href="catalogo" class="btn btn-outline-primary ms-2">Ver catálogo</a>
+                <a href="<%= request.getContextPath() %>/login.jsp" class="btn btn-primary"><i class="bi bi-box-arrow-in-right me-1"></i>Iniciar sesión</a>
+                <a href="<%= request.getContextPath() %>/catalogo" class="btn btn-outline-primary ms-2">Ver catálogo</a>
             <% } %>
         </div>
     </div>
