@@ -37,7 +37,7 @@
                         <thead class="table-light">
                             <tr>
                                 <th>#</th><th>Solicitud</th><th>Cliente</th><th>Propiedad</th>
-                                <th>Tipo de documento</th><th>Ruta</th><th>Acción</th>
+                                <th>Tipo de documento</th><th>Archivo</th><th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,10 +48,10 @@
                                     <td><c:out value="${d.nombreCliente}" /></td>
                                     <td><c:out value="${d.tituloPropiedad}" /></td>
                                     <td><c:out value="${d.tipoDocumento}" /></td>
-                                    <td class="text-muted small"><c:out value="${d.rutaArchivo}" /></td>
+                                    <td class="text-muted small"><c:out value="${d.nombreArchivo}" /></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <a href="${pageContext.request.contextPath}/${d.rutaArchivo}" target="_blank"
+                                            <a href="${pageContext.request.contextPath}/documentos/archivo?id=${d.idDocumento}" target="_blank"
                                                class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Ver</a>
                                             <a href="documentos?accion=eliminar&idDocumento=${d.idDocumento}&idSolicitud=${d.idSolicitud}"
                                                class="btn btn-sm btn-outline-danger"

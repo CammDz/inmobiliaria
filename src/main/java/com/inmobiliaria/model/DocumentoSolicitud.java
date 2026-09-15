@@ -14,6 +14,7 @@ public class DocumentoSolicitud implements Serializable {
     private Timestamp fechaSubida;
     private String nombreCliente;
     private String tituloPropiedad;
+    private byte[] contenido;
 
     public DocumentoSolicitud() {}
 
@@ -33,4 +34,6 @@ public class DocumentoSolicitud implements Serializable {
     public void setNombreCliente(String nombreCliente) { this.nombreCliente = nombreCliente; }
     public String getTituloPropiedad() { return tituloPropiedad; }
     public void setTituloPropiedad(String tituloPropiedad) { this.tituloPropiedad = tituloPropiedad; }
+    public byte[] getContenido() { return contenido; }
+    public void setContenido(byte[] contenido) { this.contenido = contenido; }
 }

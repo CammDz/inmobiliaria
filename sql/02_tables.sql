@@ -142,6 +142,7 @@ CREATE TABLE documento_solicitud (
     nombre_archivo VARCHAR(255) NOT NULL,
     ruta_archivo VARCHAR(500) NOT NULL,
     tipo_documento VARCHAR(50),
+    contenido MEDIUMBLOB NULL,
     fecha_subida TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 

@@ -13,10 +13,14 @@ import java.util.List;
 
 public class DocumentoSolicitudDAO {
 
+    private static final String COLUMNAS_SIN_CONTENIDO =
+            "d.id_documento, d.id_solicitud, d.nombre_archivo, d.ruta_archivo, "
+          + "d.tipo_documento, d.fecha_subida, "
+          + "u.nombre AS nombre_cliente, u.apellido AS apellido_cliente, p.titulo AS titulo_propiedad";
+
     public List<DocumentoSolicitud> listarPorSolicitud(int idSolicitud) {
         List<DocumentoSolicitud> lista = new ArrayList<>();
-        String sql = "SELECT d.*, u.nombre AS nombre_cliente, u.apellido AS apellido_cliente, "
-                   + "p.titulo AS titulo_propiedad "
+        String sql = "SELECT " + COLUMNAS_SIN_CONTENIDO + " "
                    + "FROM documento_solicitud d "
                    + "INNER JOIN solicitud s ON d.id_solicitud = s.id_solicitud "
                    + "INNER JOIN usuario u ON s.id_cliente = u.id_usuario "
@@ -41,8 +45,7 @@ public class DocumentoSolicitudDAO {
      */
     public List<DocumentoSolicitud> listarPorAgente(int idAgente) {
         List<DocumentoSolicitud> lista = new ArrayList<>();
-        String sql = "SELECT d.*, u.nombre AS nombre_cliente, u.apellido AS apellido_cliente, "
-                   + "p.titulo AS titulo_propiedad "
+        String sql = "SELECT " + COLUMNAS_SIN_CONTENIDO + " "
                    + "FROM documento_solicitud d "
                    + "INNER JOIN solicitud s ON d.id_solicitud = s.id_solicitud "
                    + "INNER JOIN propiedad p ON s.id_propiedad = p.id_propiedad "
@@ -63,7 +66,12 @@ public class DocumentoSolicitudDAO {
     }
 
     public DocumentoSolicitud buscarPorId(int id) {
-        String sql = "SELECT * FROM documento_solicitud WHERE id_documento = ?";
+        String sql = "SELECT " + COLUMNAS_SIN_CONTENIDO + " "
+                   + "FROM documento_solicitud d "
+                   + "INNER JOIN solicitud s ON d.id_solicitud = s.id_solicitud "
+                   + "INNER JOIN usuario u ON s.id_cliente = u.id_usuario "
+                   + "INNER JOIN propiedad p ON s.id_propiedad = p.id_propiedad "
+                   + "WHERE d.id_documento = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -79,14 +87,15 @@ public class DocumentoSolicitudDAO {
     }
 
     public boolean insertar(DocumentoSolicitud doc) {
-        String sql = "INSERT INTO documento_solicitud (id_solicitud, nombre_archivo, ruta_archivo, tipo_documento) "
-                   + "VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO documento_solicitud (id_solicitud, nombre_archivo, ruta_archivo, tipo_documento, contenido) "
+                   + "VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, doc.getIdSolicitud());
             ps.setString(2, doc.getNombreArchivo());
             ps.setString(3, doc.getRutaArchivo());
             ps.setString(4, doc.getTipoDocumento());
+            ps.setBytes(5, doc.getContenido() != null ? doc.getContenido() : new byte[0]);
             ps.executeUpdate();
             try (ResultSet rs = ps.getGeneratedKeys()) {
                 if (rs.next()) {
@@ -98,6 +107,25 @@ public class DocumentoSolicitudDAO {
             System.err.println("Error en insertar documento: " + e.getMessage());
             return false;
         }
+    }
+
+    /**
+     * Recupera solo el contenido binario (BLOB) de un documento.
+     */
+    public byte[] obtenerContenido(int idDocumento) {
+        String sql = "SELECT contenido FROM documento_solicitud WHERE id_documento = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, idDocumento);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getBytes("contenido");
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error en obtenerContenido: " + e.getMessage());
+        }
+        return null;
     }
 
     public boolean eliminar(int id) {

@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -133,23 +132,15 @@ public class SolicitudesClienteServlet extends HttpServlet {
             nombreArchivo = "documento_" + System.currentTimeMillis() + "_" + idSolicitud;
         }
 
-        // Configurar directorio de subida
-        String rutaSubida = request.getServletContext().getRealPath("/uploads");
-        File dirSubida = new File(rutaSubida);
-        if (!dirSubida.exists()) {
-            dirSubida.mkdirs();
-        }
-
         // Nombre único para evitar colisiones
         String nombreUnico = System.currentTimeMillis() + "_" + idCliente + "_" + nombreArchivo.replaceAll("[^a-zA-Z0-9.\\-_]", "_");
-        File archivoDestino = new File(dirSubida, nombreUnico);
-        parteArchivo.write(archivoDestino.getAbsolutePath());
 
         DocumentoSolicitud doc = new DocumentoSolicitud();
         doc.setIdSolicitud(idSolicitud);
         doc.setNombreArchivo(nombreArchivo);
-        doc.setRutaArchivo("uploads/" + nombreUnico);
+        doc.setRutaArchivo("documentos/" + nombreUnico);
         doc.setTipoDocumento(tipoDocumento);
+        doc.setContenido(parteArchivo.getInputStream().readAllBytes());
 
         if (documentoDAO.insertar(doc)) {
             auditoriaDAO.registrar(idCliente, "SUBDIDA DE DOCUMENTO", "documento_solicitud",
