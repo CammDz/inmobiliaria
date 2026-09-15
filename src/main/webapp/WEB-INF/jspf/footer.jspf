@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-4 mb-3">
                 <h5 class="text-warning"><i class="bi bi-house-door-fill me-1"></i>InmoVaIn Soluciones</h5>
-                <p class="small text-muted">Tu inmobiliaria de confianza. Encontramos el hogar ideal para ti y gestionamos tu propiedad de forma segura y profesional.</p>
+                <p class="small text-white-50">Tu inmobiliaria de confianza. Encontramos el hogar ideal para ti y gestionamos tu propiedad de forma segura y profesional.</p>
             </div>
             <div class="col-md-4 mb-3">
                 <h6>Enlaces rápidos</h6>
@@ -17,12 +17,12 @@
             </div>
             <div class="col-md-4 mb-3">
                 <h6>Contacto</h6>
-                <p class="small text-muted mb-1"><i class="bi bi-geo-alt me-1"></i>Cra 45 #67-10, Medellín</p>
-                <p class="small text-muted mb-1"><i class="bi bi-telephone me-1"></i>(604) 234-5678</p>
-                <p class="small text-muted mb-0"><i class="bi bi-envelope me-1"></i>contacto@inmovain.com</p>
+                <p class="small text-white-50 mb-1"><i class="bi bi-geo-alt me-1"></i>Cra 45 #67-10, Medellín</p>
+                <p class="small text-white-50 mb-1"><i class="bi bi-telephone me-1"></i>(604) 234-5678</p>
+                <p class="small text-white-50 mb-0"><i class="bi bi-envelope me-1"></i>contacto@inmovain.com</p>
             </div>
         </div>
         <hr class="my-3">
-        <p class="text-center small text-muted mb-0">&copy; 2026 InmoVaIn Soluciones Inmobiliarias - Proyecto académico.</p>
+        <p class="text-center small text-white-50 mb-0">&copy; 2026 InmoVaIn Soluciones Inmobiliarias - Proyecto académico.</p>
     </div>
 </footer>
