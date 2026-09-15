@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -37,7 +38,7 @@
                     <c:forEach var="a" items="${registros}">
                         <tr>
                             <td>${a.idAuditoria}</td>
-                            <td class="small text-muted"><c:out value="${a.fechaHora}" /></td>
+                            <td class="small text-muted"><fmt:formatDate value="${a.fechaHora}" pattern="yyyy-MM-dd HH:mm:ss" timeZone="America/Bogota" /></td>
                             <td><c:out value="${a.nombreUsuario}" /> <span class="text-muted small">(#${a.idUsuario})</span></td>
                             <td><span class="badge bg-info text-dark"><c:out value="${a.accion}" /></span></td>
                             <td class="small"><c:out value="${a.tablaAfectada}" /></td>
