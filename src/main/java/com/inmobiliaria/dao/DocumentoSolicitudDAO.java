@@ -15,7 +15,13 @@ public class DocumentoSolicitudDAO {
 
     public List<DocumentoSolicitud> listarPorSolicitud(int idSolicitud) {
         List<DocumentoSolicitud> lista = new ArrayList<>();
-        String sql = "SELECT * FROM documento_solicitud WHERE id_solicitud = ? ORDER BY fecha_subida DESC";
+        String sql = "SELECT d.*, u.nombre AS nombre_cliente, u.apellido AS apellido_cliente, "
+                   + "p.titulo AS titulo_propiedad "
+                   + "FROM documento_solicitud d "
+                   + "INNER JOIN solicitud s ON d.id_solicitud = s.id_solicitud "
+                   + "INNER JOIN usuario u ON s.id_cliente = u.id_usuario "
+                   + "INNER JOIN propiedad p ON s.id_propiedad = p.id_propiedad "
+                   + "WHERE d.id_solicitud = ? ORDER BY d.fecha_subida DESC";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, idSolicitud);
@@ -35,9 +41,12 @@ public class DocumentoSolicitudDAO {
      */
     public List<DocumentoSolicitud> listarPorAgente(int idAgente) {
         List<DocumentoSolicitud> lista = new ArrayList<>();
-        String sql = "SELECT d.* FROM documento_solicitud d "
+        String sql = "SELECT d.*, u.nombre AS nombre_cliente, u.apellido AS apellido_cliente, "
+                   + "p.titulo AS titulo_propiedad "
+                   + "FROM documento_solicitud d "
                    + "INNER JOIN solicitud s ON d.id_solicitud = s.id_solicitud "
                    + "INNER JOIN propiedad p ON s.id_propiedad = p.id_propiedad "
+                   + "INNER JOIN usuario u ON s.id_cliente = u.id_usuario "
                    + "WHERE p.id_agente = ? ORDER BY d.fecha_subida DESC";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -112,6 +121,8 @@ public class DocumentoSolicitudDAO {
         d.setRutaArchivo(rs.getString("ruta_archivo"));
         d.setTipoDocumento(rs.getString("tipo_documento"));
         d.setFechaSubida(rs.getTimestamp("fecha_subida"));
+        d.setNombreCliente(rs.getString("nombre_cliente") + " " + rs.getString("apellido_cliente"));
+        d.setTituloPropiedad(rs.getString("titulo_propiedad"));
         return d;
     }
 }

@@ -53,7 +53,7 @@
                                         <div class="d-flex gap-1">
                                             <a href="${pageContext.request.contextPath}${d.rutaArchivo}" target="_blank"
                                                class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Ver</a>
-                                            <a href="documentos?accion=eliminar&id=${d.idDocumento}&idSolicitud=${d.idSolicitud}"
+                                            <a href="documentos?accion=eliminar&idDocumento=${d.idDocumento}&idSolicitud=${d.idSolicitud}"
                                                class="btn btn-sm btn-outline-danger"
                                                onclick="return confirm('¿Eliminar este documento?');"><i class="bi bi-trash"></i></a>
                                         </div>

@@ -57,9 +57,13 @@
                     </c:when>
                     <c:otherwise>
                         <c:forEach var="img" items="${imagenes}">
+                            <c:set var="imgUrl" value="${img.urlImagen}" />
+                            <c:if test="${!imgUrl.startsWith('http') && !imgUrl.startsWith('/')}">
+                                <c:set var="imgUrl" value="${pageContext.request.contextPath}/${imgUrl}" />
+                            </c:if>
                             <div class="col-md-6">
                                 <div class="card border-0 shadow-sm">
-                                    <img src="${img.urlImagen}" class="card-img-top" style="height: 160px; object-fit: cover;"
+                                    <img src="${imgUrl}" class="card-img-top" style="height: 160px; object-fit: cover;"
                                          alt="Imagen" onerror="this.src='${pageContext.request.contextPath}/images/placeholder.jpg'">
                                     <div class="card-body py-2">
                                         <div class="d-flex justify-content-between align-items-center">

@@ -32,7 +32,14 @@
                 <c:forEach var="f" items="${favoritos}">
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 shadow-sm">
-                            <img src="${empty f.urlImagen ? '../images/placeholder.jpg' : f.urlImagen}"
+                            <c:set var="imgUrl" value="../images/placeholder.jpg" />
+                            <c:if test="${not empty f.urlImagen}">
+                                <c:set var="imgUrl" value="${f.urlImagen}" />
+                                <c:if test="${!imgUrl.startsWith('http') && !imgUrl.startsWith('/')}">
+                                    <c:set var="imgUrl" value="${pageContext.request.contextPath}/${imgUrl}" />
+                                </c:if>
+                            </c:if>
+                            <img src="${imgUrl}"
                                  class="card-img-top" style="height: 180px; object-fit: cover;"
                                  alt="${f.tituloPropiedad}" onerror="this.src='${pageContext.request.contextPath}/images/placeholder.jpg'">
                             <div class="card-body">

@@ -12,6 +12,8 @@ public class DocumentoSolicitud implements Serializable {
     private String rutaArchivo;
     private String tipoDocumento;
     private Timestamp fechaSubida;
+    private String nombreCliente;
+    private String tituloPropiedad;
 
     public DocumentoSolicitud() {}
 
@@ -27,4 +29,8 @@ public class DocumentoSolicitud implements Serializable {
     public void setTipoDocumento(String tipoDocumento) { this.tipoDocumento = tipoDocumento; }
     public Timestamp getFechaSubida() { return fechaSubida; }
     public void setFechaSubida(Timestamp fechaSubida) { this.fechaSubida = fechaSubida; }
+    public String getNombreCliente() { return nombreCliente; }
+    public void setNombreCliente(String nombreCliente) { this.nombreCliente = nombreCliente; }
+    public String getTituloPropiedad() { return tituloPropiedad; }
+    public void setTituloPropiedad(String tituloPropiedad) { this.tituloPropiedad = tituloPropiedad; }
 }

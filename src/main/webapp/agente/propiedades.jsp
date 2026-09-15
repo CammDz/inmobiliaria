@@ -38,6 +38,9 @@
                             <c:set var="imgUrl" value="../images/placeholder.jpg" />
                             <c:if test="${not empty p.imagenes && p.imagenes.size() > 0}">
                                 <c:set var="imgUrl" value="${p.imagenes[0].urlImagen}" />
+                                <c:if test="${!imgUrl.startsWith('http') && !imgUrl.startsWith('/')}">
+                                    <c:set var="imgUrl" value="${pageContext.request.contextPath}/${imgUrl}" />
+                                </c:if>
                             </c:if>
                             <img src="${imgUrl}" class="card-img-top" style="height: 180px; object-fit: cover;"
                                  alt="${p.titulo}" onerror="this.src='${pageContext.request.contextPath}/images/placeholder.jpg'">
